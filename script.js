@@ -122,11 +122,11 @@ navLinksEl.querySelectorAll('.nav-link').forEach(link => {
 /* ---- TYPEWRITER EFFECT ---- */
 const heroRole = document.getElementById('hero-role');
 const roles = [
-  'Full Stack Developer',
-  'React & Node.js Dev',
+  'Data Analyst',
+  'Python & Power BI',
   'Problem Solver',
   'C++ Programmer',
-  'GitTalk Founder & CEO'
+  'YouTube Creator'
 ];
 let roleIndex = 0, charIndex = 0, isDeleting = false;
 
