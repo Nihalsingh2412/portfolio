@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Shubham Anand – Full Stack Developer skilled in C++, JavaScript, React, and Node.js. Explore projects, skills, and achievements." />
+  <title>Shubham Anand | Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===== PAGE LOADER ===== -->
+  <div id="page-loader">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <span class="logo-bracket">&lt;</span>SA<span class="logo-bracket">/&gt;</span>
+      </div>
+      <div class="loader-tagline">Full Stack Developer</div>
+      <div class="loader-bar-track">
+        <div class="loader-bar" id="loader-bar"></div>
+      </div>
+      <div class="loader-percent" id="loader-percent">0%</div>
+    </div>
+    <div class="loader-particles" id="loader-particles"></div>
+  </div>
+
+  <!-- ===== CURSOR ===== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- ===== PARTICLE CANVAS ===== -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ===== NAV ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">&lt;</span>SA<span class="logo-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#summary" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#training" class="nav-link">Training</a></li>
+      <li><a href="#extracurricular" class="nav-link">Activities</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <a href="https://drive.google.com/file/d/1Q8dHwIMvarmfiC0w-wICMyJGRTzseaCu/view?usp=drivesdk" target="_blank"
+      rel="noopener" class="nav-resume" id="nav-resume">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <polyline points="14 2 14 8 20 8" />
+        <line x1="16" y1="13" x2="8" y2="13" />
+        <line x1="16" y1="17" x2="8" y2="17" />
+      </svg>
+      Resume
+    </a>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light mode">
+      <svg class="theme-icon-moon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <svg class="theme-icon-sun" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="profile-pic-wrapper">
+        <div class="profile-pic-ring">
+          <img src="profile.jpg" alt="Shubham Anand"
+            class="profile-pic" id="profile-pic" />
+        </div>
+        <div class="profile-online-dot"></div>
+      </div>
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Open to Opportunities
+      </div>
+      <h1 class="hero-title">
+        Hi, I'm <span class="gradient-text">Shubham</span><br />
+        <span class="hero-role" id="hero-role"></span>
+      </h1>
+      <div class="hero-intro-quote">
+        <span class="intro-line">"Code is not just what I write —</span>
+        <span class="intro-line accent-line">it's how I think, create and lead."</span>
+      </div>
+      <p class="hero-sub">
+        Full Stack Developer crafting scalable web applications
+        with <strong>React</strong>, <strong>Node.js</strong>, and <strong>MongoDB</strong>.
+        Founder &amp; CEO of <strong>GitTalk Student Organisation</strong>.
+      </p>
+      <div class="hero-summary-chips">
+        <span class="hero-chip">🎓 B.Tech CSE @ LPU</span>
+        <span class="hero-chip">💻 Full Stack Dev</span>
+        <span class="hero-chip">🏆 250+ Coding Problems</span>
+        <span class="hero-chip">🚀 GitTalk Founder &amp; CEO</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+          </svg>
+          View Projects
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          Contact Me
+        </a>
+        <a href="https://drive.google.com/file/d/1Q8dHwIMvarmfiC0w-wICMyJGRTzseaCu/view?usp=drivesdk" target="_blank"
+          rel="noopener" class="btn btn-resume">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+          </svg>
+          View Resume
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-target="250">0</span><span class="stat-plus">+</span>
+          <p>Problems Solved</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="3">0</span>
+          <p>Major Projects</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-number" data-target="7">0</span><span class="stat-dec">.71</span>
+          <p>CGPA</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="code-card" id="code-card">
+        <div class="code-card-header">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span class="code-file">shubham.js</span>
+        </div>
+        <pre class="code-body"><code><span class="c-keyword">const</span> <span class="c-var">developer</span> = {
+  <span class="c-prop">name</span>: <span class="c-str">"Shubham Anand"</span>,
+  <span class="c-prop">role</span>: <span class="c-str">"Full Stack Developer"</span>,
+  <span class="c-prop">skills</span>: [
+    <span class="c-str">"React"</span>, <span class="c-str">"Node.js"</span>,
+    <span class="c-str">"MongoDB"</span>, <span class="c-str">"C++"</span>
+  ],
+  <span class="c-prop">passion</span>: <span class="c-str">"Building impactful apps"</span>,
+  <span class="c-prop">available</span>: <span class="c-keyword">true</span>,
+
+  <span class="c-prop">greet</span>() {
+    <span class="c-keyword">return</span> <span class="c-str">`Let's build something
+    amazing together! 🚀`</span>;
+  }
+};</code></pre>
+        <div class="code-cursor"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUMMARY / ABOUT ===== -->
+  <section class="section section-dark" id="summary">
+    <div class="container">
+      <div class="summary-grid">
+        <div class="summary-text" data-aos>
+          <span class="section-tag">Who I Am</span>
+          <h2 class="section-title" style="text-align:left;">About Me</h2>
+          <p class="summary-bio">
+            Hi, I'm <strong>Shubham Anand</strong> — a developer who believes code is not just written, but used to solve real-world problems.
+          </p>
+          <p class="summary-bio" style="margin-top:1rem;">
+            My journey into tech started with curiosity and evolved into building full stack applications using <strong>React, Node.js, and MongoDB</strong>. Along the way, I developed a strong command over <strong>Data Structures and Algorithms</strong>, solving 250+ problems that strengthened my analytical thinking and coding efficiency.
+          </p>
+          <p class="summary-bio" style="margin-top:1rem;">
+            As the <strong>Founder &amp; CEO of GitTalk Student Organisation</strong>, I've led initiatives that bring developers together, organized impactful tech events, and mentored peers. I thrive on solving challenging problems, building scalable systems, and continuously pushing my limits.
+          </p>
+          <div class="summary-tags">
+            <span class="summary-tag">🚀 Full Stack Dev</span>
+            <span class="summary-tag">💡 Problem Solver</span>
+            <span class="summary-tag">👑 Org Founder &amp; CEO</span>
+            <span class="summary-tag">📚 Continuous Learner</span>
+          </div>
+        </div>
+        <div class="summary-cards" data-aos>
+          <div class="summary-card">
+            <div class="summary-card-icon">📍</div>
+            <div>
+              <strong>Location</strong>
+              <p>Punjab, India</p>
+            </div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-card-icon">🎓</div>
+            <div>
+              <strong>Education</strong>
+              <p>B.Tech CSE — LPU (2023–Present)</p>
+            </div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-card-icon">💼</div>
+            <div>
+              <strong>Availability</strong>
+              <p>Open to Internships &amp; Full-time</p>
+            </div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-card-icon">⚡</div>
+            <div>
+              <strong>Focus</strong>
+              <p>Full Stack Web Development</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What I Know</span>
+        <h2 class="section-title">Skills &amp; Technologies</h2>
+        <p class="section-sub">A toolkit refined through real-world projects and continuous learning.</p>
+      </div>
+      <div class="skills-grid">
+
+        <!-- Languages -->
+        <div class="skill-category" data-aos>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3>Languages</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/cplusplus/00599C" class="skill-logo" alt="C++"/> C++
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/c/A8B9CC" class="skill-logo" alt="C"/> C
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/javascript/F7DF1E" class="skill-logo" alt="JavaScript"/> JavaScript
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/typescript/3178C6" class="skill-logo" alt="TypeScript"/> TypeScript
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/python/3776AB" class="skill-logo" alt="Python"/> Python
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/php/777BB4" class="skill-logo" alt="PHP"/> PHP
+            </span>
+          </div>
+        </div>
+
+        <!-- Frameworks & Libraries -->
+        <div class="skill-category" data-aos>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon skill-cat-icon-fw">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Frameworks &amp; Libraries</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/react/61DAFB" class="skill-logo" alt="React"/> React.js
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/nextdotjs/FFFFFF" class="skill-logo" alt="Next.js"/> Next.js
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/nodedotjs/339933" class="skill-logo" alt="Node"/> Node.js
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/express/FFFFFF" class="skill-logo" alt="Express"/> Express.js
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/html5/E34F26" class="skill-logo" alt="HTML5"/> HTML5
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/css3/1572B6" class="skill-logo" alt="CSS3"/> CSS3
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" class="skill-logo" alt="Tailwind"/> Tailwind CSS
+            </span>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="skill-category" data-aos>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon skill-cat-icon-db">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h3>Databases</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/mongodb/47A248" class="skill-logo" alt="MongoDB"/> MongoDB
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/mysql/4479A1" class="skill-logo" alt="MySQL"/> MySQL
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/firebase/FFCA28" class="skill-logo" alt="Firebase"/> Firebase
+            </span>
+            <span class="skill-pill skill-pill-dim">
+              <img src="https://cdn.simpleicons.org/redis/FF4438" class="skill-logo" alt="Redis"/> Redis
+              <span class="pill-note">basic</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- Tools & Platforms -->
+        <div class="skill-category" data-aos>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon skill-cat-icon-tools">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Tools &amp; Platforms</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/git/F05032" class="skill-logo" alt="Git"/> Git
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/github/FFFFFF" class="skill-logo" alt="GitHub"/> GitHub
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/visualstudiocode/007ACC" class="skill-logo" alt="VS Code"/> VS Code
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/postman/FF6C37" class="skill-logo" alt="Postman"/> Postman
+            </span>
+            <span class="skill-pill skill-pill-dim">
+              <img src="https://cdn.simpleicons.org/docker/2496ED" class="skill-logo" alt="Docker"/> Docker
+              <span class="pill-note">basic</span>
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/linux/FCC624" class="skill-logo" alt="Linux"/> Linux
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/figma/F24E1E" class="skill-logo" alt="Figma"/> Figma
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/vercel/FFFFFF" class="skill-logo" alt="Vercel"/> Vercel
+            </span>
+            <span class="skill-pill">
+              <img src="https://cdn.simpleicons.org/netlify/00C7B7" class="skill-logo" alt="Netlify"/> Netlify
+            </span>
+          </div>
+        </div>
+
+        <!-- Core Concepts -->
+        <div class="skill-category" data-aos>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon skill-cat-icon-core">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h3>Core Concepts</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="skill-pill skill-pill-accent">⚡ DSA</span>
+            <span class="skill-pill skill-pill-accent">💻 Operating Systems</span>
+            <span class="skill-pill skill-pill-accent">🗄️ DBMS</span>
+            <span class="skill-pill skill-pill-accent">🌐 Computer Networks</span>
+            <span class="skill-pill skill-pill-accent">🧱 OOPs</span>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skill-category" data-aos>
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon skill-cat-icon-soft">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Soft Skills</h3>
+          </div>
+          <div class="skill-pills">
+            <span class="soft-chip">🔍 Problem Solving</span>
+            <span class="soft-chip">🤝 Team Collaboration</span>
+            <span class="soft-chip">💬 Communication</span>
+            <span class="soft-chip">👑 Leadership</span>
+            <span class="soft-chip">⏱️ Time Management</span>
+            <span class="soft-chip">🔄 Adaptability</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="section section-dark" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What I've Built</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-sub">Real-world applications solving real-world problems.</p>
+      </div>
+      <div class="projects-grid">
+
+        <!-- Project 1: DeepTB -->
+        <div class="project-card" data-aos>
+          <div class="project-header">
+            <div class="project-icon">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <span class="project-date">Oct '25 – Nov '25</span>
+          </div>
+          <h3 class="project-title">DeepTB – AI-Powered TB Detection System</h3>
+          <p class="project-desc">A complete medical workflow with AI-powered TB detection using DenseNet121 and FastAPI delivering instant X-ray analysis with doctor review, analytics dashboards, and progress tracking.</p>
+          <ul class="project-highlights">
+            <li>AI TB detection via DenseNet121 + FastAPI for high diagnostic accuracy</li>
+            <li>Doctor review, analytics dashboards, and real-time progress tracking</li>
+            <li>Secure user management: JWT, 2FA, role-based access &amp; encrypted medical reports</li>
+          </ul>
+          <div class="project-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">FastAPI</span>
+            <span class="stack-tag">DenseNet121</span>
+            <span class="stack-tag">MongoDB</span>
+          </div>
+          <a href="https://github.com/Shubham23052004/deepTB" target="_blank" rel="noopener" class="project-link">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            </svg>
+            View on GitHub
+          </a>
+        </div>
+
+        <!-- Project 2: Trie-Based Auto-Suggestion -->
+        <div class="project-card project-featured" data-aos>
+          <div class="project-badge">Featured</div>
+          <div class="project-header">
+            <div class="project-icon project-icon-alt">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <span class="project-date">Jun '25 – Jul '25</span>
+          </div>
+          <h3 class="project-title">Trie-Based Auto-Suggestion System</h3>
+          <p class="project-desc">A Java Trie-based auto-suggestion system predicting the top three most frequent words for any typed prefix with fast, accurate, real-time text recommendations and an intuitive Swing GUI.</p>
+          <ul class="project-highlights">
+            <li>Predicts top-3 most frequent words for any prefix in real-time</li>
+            <li>Intuitive Java Swing GUI for smooth word search &amp; selection</li>
+            <li>Efficient file handling to store, update &amp; load word frequencies across sessions</li>
+          </ul>
+          <div class="project-stack">
+            <span class="stack-tag">Java</span>
+            <span class="stack-tag">Java Swing</span>
+            <span class="stack-tag">Trie DSA</span>
+          </div>
+          <a href="https://github.com/Shubham23052004/Keyword-Auto-Suggestion" target="_blank" rel="noopener" class="project-link">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            </svg>
+            View on GitHub
+          </a>
+        </div>
+
+        <!-- Project 3: UniConnect -->
+        <div class="project-card" data-aos>
+          <div class="project-header">
+            <div class="project-icon">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <span class="project-date">Apr '25 – May '25</span>
+          </div>
+          <h3 class="project-title">UniConnect – University Platform</h3>
+          <p class="project-desc">A university platform enabling teachers, students, and parents to share assignments, announcements, and academic updates seamlessly with real-time notifications and progress tracking.</p>
+          <ul class="project-highlights">
+            <li>Seamless sharing of assignments, announcements &amp; academic updates</li>
+            <li>Real-time notifications &amp; progress tracking for transparency</li>
+            <li>Easy access to essential academic info in one organized system</li>
+          </ul>
+          <div class="project-stack">
+            <span class="stack-tag">React</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">MongoDB</span>
+            <span class="stack-tag">Express.js</span>
+          </div>
+          <a href="https://github.com/Shubham23052004/Uniconnectphp" target="_blank" rel="noopener" class="project-link">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            </svg>
+            View on GitHub
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRAINING & CERTIFICATES ===== -->
+  <section class="section" id="training">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Learning &amp; Growth</span>
+        <h2 class="section-title">Training &amp; Certificates</h2>
+      </div>
+      <div class="tc-grid">
+
+        <!-- Training: Logic Building -->
+        <div class="tc-card training-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/3a/Lovely_Professional_University_logo.png" class="tc-icon-img" alt="LPU" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">Lovely Professional University</span>
+            <h3>Logic Building, Programming &amp; Data Structures</h3>
+            <p>Intensive training on logic building, programming fundamentals, core data structures, algorithm implementation, code optimization, and real-world applications.</p>
+            <div class="tc-footer">
+              <span class="tc-date">Jun '25 – Jul '25</span>
+              <a href="https://drive.google.com/file/d/1z3iJTZZ9YpvagbxVyDWkIh8Jt54t8rrX/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- NPTEL: Cloud Computing -->
+        <div class="tc-card cert-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/NPTEL_logo.svg/200px-NPTEL_logo.svg.png" class="tc-icon-img" alt="NPTEL" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">NPTEL – IIT</span>
+            <h3>Cloud Computing</h3>
+            <p>NPTEL certification covering cloud architectures, virtualization, deployment models (IaaS/PaaS/SaaS), and cloud security fundamentals.</p>
+            <div class="tc-footer">
+              <span class="tc-date">Nov '25</span>
+              <a href="https://drive.google.com/file/d/1h4B7WfD10QeHEWQpKQoxi0I2p5XjR48w/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- NPTEL: Privacy & Security -->
+        <div class="tc-card cert-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/NPTEL_logo.svg/200px-NPTEL_logo.svg.png" class="tc-icon-img" alt="NPTEL" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">NPTEL – IIT</span>
+            <h3>Privacy &amp; Security in Online Social Media</h3>
+            <p>Certified in understanding privacy risks, security frameworks, threat models, and digital ethics in online social platforms.</p>
+            <div class="tc-footer">
+              <span class="tc-date">Nov '25</span>
+              <a href="https://drive.google.com/file/d/13lT_rMCRA34DSv_gozcjhBrnfqpTEJnF/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AWS: Cloud Practitioner -->
+        <div class="tc-card cert-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://unqork.com/wp-content/uploads/2021/05/Amazon_Web_Services-Logo.wine_.png" class="tc-icon-img" alt="AWS" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">Amazon Web Services</span>
+            <h3>AWS Cloud Practitioner</h3>
+            <p>Foundational AWS certification covering core cloud concepts, global infrastructure, services, security, compliance, and pricing models.</p>
+            <div class="tc-footer">
+              <span class="tc-date">Jul '25</span>
+              <a href="https://drive.google.com/file/d/1ZBjNDplGeR5LlWN4KsYxS0hKsgLV8-9u/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google: Bits & Bytes -->
+        <div class="tc-card cert-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://cdn.simpleicons.org/google/4285F4" class="tc-icon-img" alt="Google" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">Google – Coursera</span>
+            <h3>The Bits and Bytes of Computer Networking</h3>
+            <p>Google-certified course covering networking fundamentals, TCP/IP, DNS, the internet, and troubleshooting modern network infrastructure.</p>
+            <div class="tc-footer">
+              <span class="tc-date">Sep '24</span>
+              <a href="https://drive.google.com/file/d/1eRmWb4dAsdDjLF8mHMM90Dekoh5pWTjy/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google: Build Generative AI -->
+        <div class="tc-card cert-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://cdn.simpleicons.org/googlecloud/4285F4" class="tc-icon-img" alt="Google Cloud" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">Google Cloud</span>
+            <h3>Build Generative AI Applications with Vertex AI</h3>
+            <p>Hands-on certification covering how to build and deploy generative AI applications using Google Cloud's Vertex AI platform and foundation models.</p>
+            <div class="tc-footer">
+              <span class="tc-date">2025</span>
+              <a href="https://drive.google.com/file/d/1NsBbHrl6K_pbmQ911HGYifTtXB90Xkpl/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google: Master Generative AI -->
+        <div class="tc-card cert-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://cdn.simpleicons.org/googlecloud/4285F4" class="tc-icon-img" alt="Google Cloud" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">Google Cloud</span>
+            <h3>Master Generative AI</h3>
+            <p>Advanced certification covering mastery of generative AI concepts, large language models, prompt engineering, and responsible AI practices.</p>
+            <div class="tc-footer">
+              <span class="tc-date">2025</span>
+              <a href="https://drive.google.com/file/d/1Y3JaZWMnxk5EkNFI6XTL97_TgIq2vwPu/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google: AI Essentials -->
+        <div class="tc-card cert-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://cdn.simpleicons.org/google/4285F4" class="tc-icon-img" alt="Google" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">Google</span>
+            <h3>Google AI Essentials</h3>
+            <p>Google certification covering core AI concepts, practical applications of AI tools, responsible AI use, and how to leverage AI to enhance productivity.</p>
+            <div class="tc-footer">
+              <span class="tc-date">2025</span>
+              <a href="https://drive.google.com/file/d/1VyYebm14qZn9Lv2IV6DbL-5DhMJ24VQS/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AWS: Fundamentals of Generative AI -->
+        <div class="tc-card cert-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://unqork.com/wp-content/uploads/2021/05/Amazon_Web_Services-Logo.wine_.png" class="tc-icon-img" alt="AWS" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">Amazon Web Services</span>
+            <h3>Fundamentals of Generative AI</h3>
+            <p>AWS certification covering the foundations of generative AI, Amazon Bedrock, large language models, and building responsible AI solutions on the cloud.</p>
+            <div class="tc-footer">
+              <span class="tc-date">2025</span>
+              <a href="https://drive.google.com/file/d/1uYKTpFPpYZY86NorxXZHf3jH4eUdpsse/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coursera: DSA -->
+        <div class="tc-card cert-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://cdn.simpleicons.org/coursera/0056D2" class="tc-icon-img" alt="Coursera" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">Coursera</span>
+            <h3>Data Structures &amp; Algorithms</h3>
+            <p>Coursera certification on fundamental and advanced data structures, algorithm design, complexity analysis, sorting, searching, and graph algorithms.</p>
+            <div class="tc-footer">
+              <span class="tc-date">2025</span>
+              <a href="https://drive.google.com/file/d/1Wi5a_VqrYYoPViDg_nHwTRQi1L0yrIjq/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- HackerRank: Java -->
+        <div class="tc-card cert-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://cdn.simpleicons.org/hackerrank/2EC866" class="tc-icon-img" alt="HackerRank" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">HackerRank</span>
+            <h3>Java (Basic)</h3>
+            <p>HackerRank certified in Java programming covering OOP principles, data structures, exception handling, and core Java fundamentals.</p>
+            <div class="tc-footer">
+              <span class="tc-date">2025</span>
+              <a href="https://drive.google.com/file/d/1IU-uAtrWXDTuKwpNZq7N0OahhjY-rgsB/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AWS: Amazon API Gateway -->
+        <div class="tc-card cert-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://unqork.com/wp-content/uploads/2021/05/Amazon_Web_Services-Logo.wine_.png" class="tc-icon-img" alt="AWS" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">Amazon Web Services</span>
+            <h3>Amazon API Gateway for Serverless Applications</h3>
+            <p>AWS certification on building scalable serverless APIs using Amazon API Gateway, AWS Lambda, and integrating with other AWS services.</p>
+            <div class="tc-footer">
+              <span class="tc-date">2025</span>
+              <a href="https://drive.google.com/file/d/1kdGbFdP8mKNP647Z5TAO_A9t-ErMie-3/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AWS: Getting Started with DevOps -->
+        <div class="tc-card cert-card" data-aos>
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="https://unqork.com/wp-content/uploads/2021/05/Amazon_Web_Services-Logo.wine_.png" class="tc-icon-img" alt="AWS" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">Amazon Web Services</span>
+            <h3>Getting Started with DevOps on AWS</h3>
+            <p>AWS certification introducing DevOps practices on AWS: CI/CD pipelines, infrastructure as code, monitoring, and automation with AWS CodePipeline, CloudFormation, and more.</p>
+            <div class="tc-footer">
+              <span class="tc-date">2025</span>
+              <a href="https://drive.google.com/file/d/1xp4PO-sbawTlFMRF879NYrJq00lPBfLu/view?usp=drivesdk"
+                target="_blank" rel="noopener" class="tc-link">View Certificate →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Achievements -->
+      <div class="achievements-row" data-aos>
+        <h3 class="ach-title">🏆 Achievements</h3>
+        <div class="ach-grid">
+          <div class="ach-item">
+            <div class="ach-icon">⭐</div>
+            <div>
+              <strong>5-Star on HackerRank</strong>
+              <p>Earned a 5-Star rating in HackerRank Problem Solving, demonstrating strong analytical thinking and algorithmic proficiency.</p>
+            </div>
+          </div>
+          <div class="ach-item">
+            <div class="ach-icon">💻</div>
+            <div>
+              <strong>250+ Coding Questions Solved</strong>
+              <p>Solved 250+ coding questions across platforms like LeetCode, CodeChef, and HackerRank.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- HackerRank Profile Showcase -->
+        <div class="hr-showcase" data-aos>
+          <div class="hr-showcase-header">
+            <div class="hr-logo-wrap">
+              <img src="https://cdn.simpleicons.org/hackerrank/2EC866" alt="HackerRank" class="hr-logo-icon" />
+              <span class="hr-platform-name">HackerRank Profile</span>
+            </div>
+            <a href="https://www.hackerrank.com/profile/shubhamanand1804" target="_blank" rel="noopener" class="hr-visit-btn">
+              View Profile
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+          <div class="hr-screenshot-wrap">
+            <img src="hackerrank_profile.png" alt="HackerRank Badges & Certifications" class="hr-screenshot" loading="lazy" />
+            <div class="hr-screenshot-overlay">
+              <div class="hr-overlay-badges">
+                <span class="hr-badge-chip hr-gold">⭐ Problem Solving – 5 Stars</span>
+                <span class="hr-badge-chip hr-silver">C++ – 3 Stars</span>
+                <span class="hr-badge-chip hr-cert">4 Verified Certifications</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section class="section section-dark" id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Academic Background</span>
+        <h2 class="section-title">Education</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item" data-aos>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="tl-header">
+              <div>
+                <h3>B.Tech – Computer Science &amp; Engineering</h3>
+                <span class="tl-school">Lovely Professional University, Phagwara, Punjab</span>
+              </div>
+              <span class="tl-date">Aug '23 – Present</span>
+            </div>
+            <div class="tl-badge">CGPA: 7.71</div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos>
+          <div class="timeline-dot timeline-dot-sm"></div>
+          <div class="timeline-content">
+            <div class="tl-header">
+              <div>
+                <h3>Intermediate (12th)</h3>
+                <span class="tl-school">SS Academy, Chhapra, Bihar</span>
+              </div>
+              <span class="tl-date">Apr '21 – Mar '22</span>
+            </div>
+            <div class="tl-badge tl-badge-sm">83%</div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos>
+          <div class="timeline-dot timeline-dot-sm"></div>
+          <div class="timeline-content">
+            <div class="tl-header">
+              <div>
+                <h3>Matriculation (10th)</h3>
+                <span class="tl-school">Bhagwath Vidyapeeth, Chhapra, Bihar</span>
+              </div>
+              <span class="tl-date">Apr '19 – Mar '20</span>
+            </div>
+            <div class="tl-badge tl-badge-sm">94.8%</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXTRA CURRICULAR ===== -->
+  <section class="section" id="extracurricular">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Beyond Coding</span>
+        <h2 class="section-title">Extra Curricular</h2>
+        <p class="section-sub">Leadership, community building, and driving tech culture on campus.</p>
+      </div>
+      <div class="tc-grid">
+        <div class="tc-card training-card" data-aos style="grid-column: 1 / -1;">
+          <div class="tc-icon tc-icon-img-wrap">
+            <img src="gittalk_logo.png" class="tc-icon-img" alt="GitTalk" style="border-radius:12px;" />
+          </div>
+          <div class="tc-body">
+            <span class="tc-org">Lovely Professional University – Division of Student Organizations</span>
+            <h3>Founder &amp; CEO – GitTalk Student Organization</h3>
+            <p>
+              Founded and led <strong>GitTalk Student Organization</strong> under the Division of Student Organizations at
+              Lovely Professional University. As Founder &amp; CEO, drove the vision, strategy, and execution of the
+              organization — organizing and hosting <strong>multiple tech events</strong>, hackathons, and workshops that
+              brought together students to collaborate, learn, and grow in technology.
+            </p>
+            <ul style="margin-top:0.75rem; padding-left:1.2rem; color:var(--text-muted, #cbd5e1); line-height:1.8;">
+              <li>Founded the organization and established its charter &amp; goals</li>
+              <li>Led a team of student volunteers to organize multiple tech events &amp; workshops</li>
+              <li>Mentored fellow students in programming, open-source, and career development</li>
+              <li>Built a thriving tech community under LPU's Division of Student Organizations</li>
+            </ul>
+            <div class="tc-footer">
+              <span class="tc-date">Lovely Professional University</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-sub">I'm actively looking for new opportunities. Whether you have a question or just want to
+          say hi – my inbox is always open!</p>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:shubhamanand1804@gmail.com" class="contact-card" id="contact-email">
+          <div class="contact-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </div>
+          <div>
+            <strong>Email</strong>
+            <p>shubhamanand1804@gmail.com</p>
+          </div>
+        </a>
+        <a href="tel:+919905293354" class="contact-card" id="contact-phone">
+          <div class="contact-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+            </svg>
+          </div>
+          <div>
+            <strong>Mobile</strong>
+            <p>+91 – 9905293354</p>
+          </div>
+        </a>
+        <a href="https://github.com/Shubham23052004" target="_blank" rel="noopener" class="contact-card" id="contact-github">
+          <div class="contact-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            </svg>
+          </div>
+          <div>
+            <strong>GitHub</strong>
+            <p>Shubham23052004</p>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/shubham-35b83b272/" target="_blank" rel="noopener"
+          class="contact-card" id="contact-linkedin">
+          <div class="contact-icon contact-icon-blue">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </div>
+          <div>
+            <strong>LinkedIn</strong>
+            <p>Shubham Anand</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <span class="logo-bracket">&lt;</span>SA<span class="logo-bracket">/&gt;</span>
+      </div>
+      <p class="footer-copy">Designed &amp; Built by <strong>Shubham Anand</strong> · 2026</p>
+      <p class="footer-sub">Full Stack Developer · LPU · GitTalk Founder &amp; CEO</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
